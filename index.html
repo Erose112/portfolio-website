@@ -4,9 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="refresh" content="0; url=https://erose112.github.io/" />
     <link rel="canonical" href="https://erose112.github.io/" />
-    <title>Redirecting…</title>
+    <title>Redirectingâ€¦</title>
     <script>
-      window.location.replace('https://erose112.github.io/')
+      ;(function () {
+        var target = 'https://erose112.github.io/'
+        var hash = window.location.hash || ''
+        var search = window.location.search || ''
+        // Drop legacy /portfolio-website asset/path leftovers; keep hash routes.
+        if (hash || search) {
+          window.location.replace(target + search + hash)
+        } else {
+          window.location.replace(target)
+        }
+      })()
     </script>
   </head>
   <body>
